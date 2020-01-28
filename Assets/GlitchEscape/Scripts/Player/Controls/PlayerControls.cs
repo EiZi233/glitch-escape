@@ -35,13 +35,15 @@ public class PlayerControls : MonoBehaviour
     private bool isSprinting;
     private bool onGround;
 
+
     void Awake()
     {
         input = new Input();
-        playerAnimator = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
-        savePoint = new Vector3(-2f, 7.5f, 2f);
-        onGround = false;
+        m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody>();
+        savePoint = new Vector3(0f, 0f, -2f);
+    // QualitySettings.vSyncCount = 0;
+    // Application.targetFrameRate = 60;
     }
 
     private void OnEnable() => input.Controls.Enable();
@@ -56,6 +58,7 @@ public class PlayerControls : MonoBehaviour
         var lookInput = input.Controls.Look.ReadValue<Vector2>();
         freeLookCam.m_XAxis.Value = freeLookCam.m_XAxis.Value + lookInput.x * cameraTurnSpeed * Time.deltaTime;
         freeLookCam.m_YAxis.Value = freeLookCam.m_YAxis.Value - lookInput.y * Time.deltaTime;
+
 
         if (transform.position.y < -5)
         {
