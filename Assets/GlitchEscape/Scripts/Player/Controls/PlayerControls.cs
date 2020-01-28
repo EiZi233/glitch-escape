@@ -39,8 +39,8 @@ public class PlayerControls : MonoBehaviour
     void Awake()
     {
         input = new Input();
-        m_Animator = GetComponent<Animator>();
-        m_Rigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody>();
         savePoint = new Vector3(0f, 0f, -2f);
     // QualitySettings.vSyncCount = 0;
     // Application.targetFrameRate = 60;
